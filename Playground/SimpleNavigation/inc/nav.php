@@ -1,3 +1,6 @@
+    <style type="text/css">
+    	.navbar-brand.active { background-color: #000; }
+    </style>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -12,8 +15,11 @@
         <div class="navbar-collapse collapse">
         
 		    <ul class="nav navbar-nav">
-		      <li class="active"><a href="contact.php">Contact Us</a></li>
-		      <li><a href="links.php">Links</a></li>
+		    	
+		      <li class="contact-menu" ><a href="contact.php">Contact Us</a></li>
+		      <li class="links-menu" ><a href="links.php">Links</a></li>
+		       
+		      
 		      <li class="dropdown">
 		        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Super Menu <b class="caret"></b></a>
 		        <ul class="dropdown-menu">

@@ -20,7 +20,6 @@
   </head>
 
   <body>
-
 	<? include 'inc/nav.php'; ?>
 	
     <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -65,5 +64,10 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".navbar-brand").addClass("active");
+		})
+	</script>
   </body>
 </html>
