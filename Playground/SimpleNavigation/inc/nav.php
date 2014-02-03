@@ -14,10 +14,20 @@
         </div>
         <div class="navbar-collapse collapse">
         
+        	
 		    <ul class="nav navbar-nav">
 		    	
-		      <li class="contact-menu" ><a href="contact.php">Contact Us</a></li>
-		      <li class="links-menu" ><a href="links.php">Links</a></li>
+		    	<?
+		    		$links = array(
+		    			array('class' => 'contact-menu', 'link' => 'contact.php', 'title' => 'Contact Us' ),
+		    			array('class' => 'links-menu', 'link' => 'links.php', 'title' => 'Links' ),
+		    		  );
+		    	?>
+		    	
+		    	<? foreach ($links as $value) { ?>
+					<li class="<?=$value['class']?>" ><a href="<?=$value['link']?>"><?=$value['title']?></a></li>
+				<? } ?>
+		      
 		       
 		      
 		      <li class="dropdown">
