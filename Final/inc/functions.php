@@ -1,5 +1,5 @@
 <?php
-	include_once 'password.php';
+	include_once __DIR__ . '/password.php';
 	
 	function GetConnection(){
 		global $password;
