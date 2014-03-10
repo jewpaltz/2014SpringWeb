@@ -3,6 +3,9 @@
 	<h2>
 		List of Users
 	</h2>
+	
+	<a href="?action=new">Create New</a>
+	
 	<table class="table table-striped table-bordered table-hover">
 		<thead>
 			<tr>
@@ -21,7 +24,7 @@
 					<td><?=$row['LastName']?></td>
 					<td><?=$row['Password']?></td>
 					<td><?=$row['fbid']?></td>
-					<td><?=$row['UserType']?></td>
+					<td><?=$row['UserType_Name']?></td>
 				</tr>
 			<? endforeach; ?>
 			

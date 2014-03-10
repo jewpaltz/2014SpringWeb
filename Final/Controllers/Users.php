@@ -7,9 +7,15 @@
 	
 	
 	switch ($action){
-		case 'create':
+		case 'new':
+			$view = 'edit';
 			break;
-		case 'update':
+		case 'edit':
+			break;
+		case 'save':
+			//	TODO: Validate
+			Users::Create($_REQUEST);
+			$view = 'edit';
 			break;
 		case 'delete':
 			break;
