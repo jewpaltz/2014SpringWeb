@@ -25,6 +25,9 @@
 					<td><?=$row['Password']?></td>
 					<td><?=$row['fbid']?></td>
 					<td><?=$row['UserType_Name']?></td>
+					<td>
+						<a href="?action=edit&id=<?=$row['id']?>">Edit</a>
+					</td>
 				</tr>
 			<? endforeach; ?>
 			
