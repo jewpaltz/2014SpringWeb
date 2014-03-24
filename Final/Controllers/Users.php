@@ -14,12 +14,15 @@
 			$model = Users::Get($_REQUEST['id']);
 			break;
 		case 'save':
-			//	TODO: Validate
-			if(!$errors = Users::Save($_REQUEST)){
+			$errors = Users::Validate($_REQUEST);
+			if(!$errors){
+				$errors = Users::Save($_REQUEST);
+			}
+			if(!$errors){
 				header("Location: ?");
 				die();
 			}else{
-				print_r($errors);
+				//print_r($errors);
 				$model = $_REQUEST;
 				$view = 'edit';
 				

@@ -26,7 +26,8 @@
 		{
 			$conn = GetConnection();
 			
-			if (isset($row['id'])) {
+			
+			if (!empty($row['id'])) {
 				$sql = "Update 2013Fall_Users
 							Set FirstName='$row[FirstName]', LastName='$row[LastName]',
 								Password='$row[Password]', fbid='$row[fbid]', UserType='$row[UserType]'
@@ -59,8 +60,25 @@
 		
 		static public function Validate($row)
 		{
+			$errors = array();
+			if(empty($row['FirstName'])) $errors['FirstName'] = "is required";
+			if(empty($row['LastName'])) $errors['LastName'] = "is required";
 			
+			if(!is_numeric($row['UserType'])) $errors['UserType'] = "must be a number";
+			if(empty($row['UserType'])) $errors['UserType'] = "is required";
+			
+			return count($errors) > 0 ? $errors : false ;
 		}
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
