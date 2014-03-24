@@ -14,6 +14,7 @@
 				<th>Password</th>
 				<th>fbid</th>
 				<th>UserType</th>
+				<th>actions</th>
 			</tr>
 		</thead>
 		<tbody>
