@@ -11,6 +11,7 @@
 	.my-horizontal .form-control{
 		display: inline-block;
 	}
+	
 	.has-feedback .form-control-feedback {
 		display: inline-block;
 		right: auto;
@@ -20,6 +21,7 @@
 	.has-error {
 		color: red;
 	}
+	
 	@media screen and (min-width: 768px) {
 		.my-horizontal .form-control{
 			width: 25%;
@@ -43,7 +45,7 @@
 	
 	<div class="form-group <?if(isset($errors['FirstName'])) echo 'has-error has-feedback' ?> ">
 		<label class="control-label" for="FirstName">First Name:</label>
-		<input class="form-control" type="text" name="FirstName" id="FirstName" value="<?=$model['FirstName']?>" placeholder="First Name" />
+		<input class="required phoneUS form-control" type="text" name="FirstName" id="FirstName" value="<?=$model['FirstName']?>" placeholder="First Name" />
 		<? if(isset($errors['FirstName'])): ?>
 			<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 			<span ><?=$errors['FirstName']?></span>
@@ -82,3 +84,20 @@
 	<input class="btn btn-primary" type="submit" value="Save" />
 </form>
 
+	<? function JavaScripts(){ ?>
+		<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+		<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				$("form").validate();
+				
+			})
+		</script>
+		
+		
+		
+		
+		
+		
+	<? } ?>

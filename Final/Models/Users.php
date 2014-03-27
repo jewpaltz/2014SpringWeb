@@ -13,6 +13,7 @@
 				return fetch_all($sql);
 			}else{
 				// Get one record
+				
 				$sql .= " WHERE U.id = $id ";
 				if(($results = fetch_all($sql)) && count($results) > 0){
 					return $results[0];
@@ -26,7 +27,7 @@
 		{
 			$conn = GetConnection();
 			
-			
+			$row = escape_all($row, $conn);
 			if (!empty($row['id'])) {
 				$sql = "Update 2013Fall_Users
 							Set FirstName='$row[FirstName]', LastName='$row[LastName]',
