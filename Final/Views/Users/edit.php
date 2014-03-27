@@ -45,7 +45,7 @@
 	
 	<div class="form-group <?if(isset($errors['FirstName'])) echo 'has-error has-feedback' ?> ">
 		<label class="control-label" for="FirstName">First Name:</label>
-		<input class="required phoneUS form-control" type="text" name="FirstName" id="FirstName" value="<?=$model['FirstName']?>" placeholder="First Name" />
+		<input class="required form-control" type="text" name="FirstName" id="FirstName" value="<?=$model['FirstName']?>" placeholder="First Name" />
 		<? if(isset($errors['FirstName'])): ?>
 			<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 			<span ><?=$errors['FirstName']?></span>
@@ -54,7 +54,7 @@
 	
 	<div class="form-group <?if(isset($errors['LastName'])) echo 'has-error has-feedback' ?> ">
 		<label class="control-label" for="LastName">Last Name:</label>
-		<input class="form-control" type="text" name="LastName" id="LastName" value="<?=$model['LastName']?>" placeholder="Last Name" />
+		<input class="required form-control" type="text" name="LastName" id="LastName" value="<?=$model['LastName']?>" placeholder="Last Name" />
 		<? if(isset($errors['LastName'])): ?>
 			<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 			<span ><?=$errors['LastName']?></span>
@@ -73,7 +73,7 @@
 
 	<div class="form-group <?if(isset($errors['UserType'])) echo 'has-error has-feedback' ?> ">
 		<label class="control-label" for="UserType">User Type:</label>
-		<input class="form-control" type="text" name="UserType" id="UserType" value="<?=$model['UserType']?>" placeholder="User Type" />
+		<input class="required digits form-control" type="text" name="UserType" id="UserType" value="<?=$model['UserType']?>" placeholder="User Type" />
 		<? if(isset($errors['UserType'])): ?>
 			<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 			<span ><?=$errors['UserType']?></span>
