@@ -73,7 +73,16 @@
 
 	<div class="form-group <?if(isset($errors['UserType'])) echo 'has-error has-feedback' ?> ">
 		<label class="control-label" for="UserType">User Type:</label>
-		<input class="required digits form-control" type="text" name="UserType" id="UserType" value="<?=$model['UserType']?>" placeholder="User Type" />
+		
+		<select size="1" class="required form-control" name="UserType" id="UserType" value="<?=$model['UserType']?>">
+			<option value="">--User Type--</option>
+			<? foreach (Keywords::SelectListFor(2) as $row): ?>
+				<option <?if($row['id'] == $model['UserType']) echo 'selected'; ?> value="<?=$row['id']?>">
+					<?=$row['Name']?>
+				</option>
+			<? endforeach; ?>
+		</select>
+		
 		<? if(isset($errors['UserType'])): ?>
 			<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 			<span ><?=$errors['UserType']?></span>
