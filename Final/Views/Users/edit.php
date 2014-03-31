@@ -74,10 +74,10 @@
 	<div class="form-group <?if(isset($errors['UserType'])) echo 'has-error has-feedback' ?> ">
 		<label class="control-label" for="UserType">User Type:</label>
 		
-		<select size="1" class="required form-control" name="UserType" id="UserType" value="<?=$model['UserType']?>">
+		<select size="1" class="required form-control" name="UserType" id="UserType">
 			<option value="">--User Type--</option>
 			<? foreach (Keywords::SelectListFor(2) as $row): ?>
-				<option <?if($row['id'] == $model['UserType']) echo 'selected'; ?> value="<?=$row['id']?>">
+				<option value="<?=$row['id']?>">
 					<?=$row['Name']?>
 				</option>
 			<? endforeach; ?>
@@ -93,13 +93,14 @@
 	<input class="btn btn-primary" type="submit" value="Save" />
 </form>
 
-	<? function JavaScripts(){ ?>
+	<? function JavaScripts(){ global $model; ?>
 		<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
 		<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
 		<script type="text/javascript">
 			$(function(){
 				
 				$("form").validate();
+				$("#UserType").val(<?=$model['UserType']?>);
 				
 			})
 		</script>
