@@ -97,6 +97,22 @@
 		
 		
 		
+		<ul>
+			<li>
+				Make dropdown
+				<ul>
+					<li>Make model to fetch list</li>
+					<li>Make select tag</li>
+				</ul>
+			</li>
+			<li>
+				Set initial value through php
+			</li>
+			<li>Set initial value through javascript</li>
+			<li>Notification of successful insert / edit</li>
+			<li>Highlight changed row</li>
+		</ul>
+		
 		
 		
 		
