@@ -99,7 +99,7 @@
 		<script type="text/javascript">
 			$(function(){
 				
-				$("form").validate();
+				//$("form").validate();
 				$("#UserType").val(<?=$model['UserType']?>);
 				
 			})
