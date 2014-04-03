@@ -73,7 +73,16 @@
 
 	<div class="form-group <?if(isset($errors['UserType'])) echo 'has-error has-feedback' ?> ">
 		<label class="control-label" for="UserType">User Type:</label>
-		<input class="required digits form-control" type="text" name="UserType" id="UserType" value="<?=$model['UserType']?>" placeholder="User Type" />
+		
+		<select size="1" class="required form-control" name="UserType" id="UserType">
+			<option value="">--User Type--</option>
+			<? foreach (Keywords::SelectListFor(2) as $row): ?>
+				<option value="<?=$row['id']?>">
+					<?=$row['Name']?>
+				</option>
+			<? endforeach; ?>
+		</select>
+		
 		<? if(isset($errors['UserType'])): ?>
 			<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 			<span ><?=$errors['UserType']?></span>
@@ -84,13 +93,14 @@
 	<input class="btn btn-primary" type="submit" value="Save" />
 </form>
 
-	<? function JavaScripts(){ ?>
+	<? function JavaScripts(){ global $model; ?>
 		<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
 		<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
 		<script type="text/javascript">
 			$(function(){
 				
-				$("form").validate();
+				//$("form").validate();
+				$("#UserType").val(<?=$model['UserType']?>);
 				
 			})
 		</script>
