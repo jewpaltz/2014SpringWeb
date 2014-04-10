@@ -61,7 +61,14 @@
 			
 		static public function Delete($id)
 		{
+			$conn = GetConnection();
+			$sql = "DELETE FROM 2013Fall_Users WHERE id = $id";
+			//echo $sql;
+			$results = $conn->query($sql);
+			$error = $conn->error;
+			$conn->close();
 			
+			return $error ? array ('sql error' => $error) : false;
 		}
 		
 		static public function Validate($row)
