@@ -30,7 +30,11 @@
 </style>
 
 
-<h2>Edit: <?=$model['FirstName']?> <?=$model['LastName']?></h2>
+	      <div class="modal-header">
+	        <a href="?" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+	        <h4 class="modal-title">Edit: <?=$model['FirstName']?> <?=$model['LastName']?></h4>
+	      </div>
+
 
 	<ul class="error">
 		<? foreach ($errors as $key => $value): ?>
@@ -89,8 +93,13 @@
 		<? endif ?>
 	</div>
 	
-	<label class="control-label"></label>
-	<input class="btn btn-primary" type="submit" value="Save" />
+		  <div class="modal-footer>
+			<label class="control-label"></label>
+			<input class="btn btn-primary" type="submit" value="Save" />
+			<a href="?" data-dismiss="modal">Cancel</a>
+	      </div>
+
+	
 </form>
 
 	<? function JavaScripts(){ global $model; ?>
