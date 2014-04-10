@@ -19,7 +19,7 @@
 		</div>
 	<? endif; ?>
 	
-	<a href="?action=new">Create New</a>
+	<a href="?action=new" class="cmd-new">Create New</a>
 	
 	<table class="table table-striped table-bordered table-hover">
 		<thead>
@@ -54,6 +54,25 @@
 		</tbody>
 	</table>
 	
+	<div class="modal fade" id="myModal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title">Modal title</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>One fine body&hellip;</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
+	
 	<? function JavaScripts(){ ?>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
@@ -86,6 +105,18 @@
 						}
 						
 					},'json')
+				});
+				
+				$(".glyphicon-edit, .cmd-new").click(function(event){
+					var that = this;
+					event.preventDefault();
+					
+					$.get(that.href, { format: 'plain'}, function(data){
+						var $myModal = $("#myModal");
+						$(".modal-content", $myModal).html(data);
+						$myModal.modal('show');
+					})
+					
 				});
 			})
 		</script>
