@@ -1,4 +1,8 @@
-
+<style type="text/css">
+	#categories {
+		margin-bottom: 10px;
+	}
+</style>
 <h2> This is the home page</h2>
 
 <div id="categories">
@@ -9,13 +13,18 @@
 <script type="text/template" id="product-tmpl">
 	<div class="row">
 		{{#each data}}
-		<div class="col-md-4">
-			<div class="well well-lg clearfix">
+		<div class=" col-md-4">
+		<div class="panel panel-info">
+		  <div class="panel-heading">
+			<code class="pull-right">${{Price}}</code>
+		    <h3 class="panel-title">{{Name}}</h3>
+		  </div>
+		  <div class="panel-body">
 				<img src="{{Picture_Url}}" class="img-thumbnail pull-right" alt="140x140" style="width: 140px; height: 140px;" >
-				<h5>{{Name}}</h5>
-				<span>${{Price}}</span>
+				<p>{{Description}}</p>
 				<a class="btn btn-success">Purchase</a>
-			</div>
+		  </div>
+		</div>
 		</div>
 		{{/each}}
 	</div>	
