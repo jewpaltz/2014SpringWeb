@@ -24,7 +24,7 @@
 <script type="text/temple" id="categories-tmpl">
 	<ul class="nav nav-pills">
 		{{#each data}}
-	  <li ><a href="?action=index&format=json">{{Name}}</a></li>
+	  <li ><a href="?action=index&format=json&category_id={{id}}">{{Name}}</a></li>
 	  {{/each}}
 	</ul>
 </script>
@@ -43,6 +43,8 @@
 				);
 				
 				$("body").on("click",".nav a", function(){
+					$(".active").removeClass("active");
+					$(this).closest("li").addClass("active");
 					$.get(this.href, function(data){
 						$("#holder").html(tmpl(data));
 					}, 'json'

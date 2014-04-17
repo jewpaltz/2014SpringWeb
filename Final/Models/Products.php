@@ -3,23 +3,25 @@
 	
 	class Products  {
 		
-		static public function Get($id = null)
+		static public function Get($id = null, $category_id = null)
 		{
 			$sql = "SELECT *
 					FROM 2013Fall_Products
 				   ";
-			if($id == null){
-				//	Get all records
-				return fetch_all($sql);
-			}else{
+			if($id){
 				// Get one record
-				
 				$sql .= " WHERE id = $id ";
 				if(($results = fetch_all($sql)) && count($results) > 0){
 					return $results[0];
 				}else{
 					return null;
 				}
+			}elseif($category_id){
+				$sql .= " WHERE Product_Category_id = $category_id ";
+				return fetch_all($sql);
+			}else{
+				//	Get all records
+				return fetch_all($sql);
 			}
 		}
 		

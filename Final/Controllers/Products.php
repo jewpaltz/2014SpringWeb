@@ -2,8 +2,10 @@
 	include_once __DIR__ . '/../inc/functions.php';
 	include_once __DIR__ . '/../inc/allModels.php';
 	
-	@$view = $action = $_REQUEST['action'];
-	@$format = $_REQUEST['format'];
+	@$view 		= $action = $_REQUEST['action'];
+	@$format 	= $_REQUEST['format'];
+	@$id		= $_REQUEST['id'];
+	@$category_id = $_REQUEST['category_id'];
 	
 	
 	switch ($action){
@@ -38,7 +40,7 @@
 			}
 			break;
 		case 'index':
-			$model = Products::Get();			
+			$model = Products::Get($id, $category_id);			
 			break;
 		case 'categories':
 			$model = Products::GetCategories();
