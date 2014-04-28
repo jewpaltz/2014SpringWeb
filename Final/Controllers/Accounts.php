@@ -29,7 +29,7 @@
 		}
 	}
 	
-	switch ($format) {
+	switch ($format) { 
 		case 'json':
 			$ret = array('success' => empty($errors), 'errors'=> $errors, 'data'=> $model);
 			echo json_encode($ret);
