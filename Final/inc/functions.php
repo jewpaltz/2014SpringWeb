@@ -11,6 +11,8 @@
 	function fetch_all($sql){
 		$conn = GetConnection();
 		$results = $conn->query($sql);
+		$error = $conn->error;
+		if($error) return $error;
 		
 		$arr = array();
 		
