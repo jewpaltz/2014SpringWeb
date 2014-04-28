@@ -37,7 +37,15 @@
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
+        <div class="navbar-right">
+        	<?
+        		$user = Accounts::GetCurrentUser();
+				//print_r($user);
+				echo $user['FirstName'];
+        	?>
+        </div>
       </div>
+      
     </div>
 
     <div class="container">
