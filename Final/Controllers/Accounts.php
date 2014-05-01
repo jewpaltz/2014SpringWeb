@@ -7,6 +7,9 @@
 	@$view 		= $action = $_REQUEST['action'];
 	@$format 	= $_REQUEST['format'];
 
+	if(isset($_REQUEST['access_token'])){
+		
+	}
 	switch ($action){
 		default:	// Login
 		$view = 'login';

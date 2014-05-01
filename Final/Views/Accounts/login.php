@@ -39,7 +39,7 @@
 		<? endforeach; ?>
 	</ul>
             	
-    <form method="post" class="my-horizontal" >
+    <form method="post" class="my-horizontal col-sm-10" >
 		<div class="form-group <?if(isset($errors['email'])) echo 'has-error has-feedback' ?> ">
 			<label class="control-label" for="email">Email or Phone Number:</label>
 			<input class="required form-control" type="text" name="email" id="email" value="<?=$model['email']?>" placeholder="Email or Phone Number" />
@@ -64,3 +64,59 @@
 			<a href="?" data-dismiss="modal">Cancel</a>
 	      </div>
     </form>
+    <div class="col-sm-2">
+    	<button class="btn btn-primary" id="fb-login">Login with Facebook</button>
+    	
+    	<img id="fb-picture" />
+    </div>
+    
+    <? function JavaScripts(){ ?>
+        
+	   <script type="text/javascript">
+	    	$(function(){
+	    		$("#fb-login").click(function(){
+	    			FB.login(null,{scope: 'email,user_likes'});
+	    		});
+	    	})
+	    	fbStuff = function(){
+	    		
+	    		FB.getLoginStatus(function(response) {
+				  console.log(response);
+				  
+				  if (response.status === 'connected') {
+				    FB.api("me", function(response){
+				    	console.log(response);
+				    	$(".navbar-collapse").append("Welcome " + response.first_name)
+				    	$("#fb-picture").attr({src: "http://graph.facebook.com/" + response.id + "/picture"})
+				    });
+				  }
+				  else {
+				    
+				  }
+				});
+				
+	    	}
+	    	
+	    </script>
+    
+    
+		<script>
+		      window.fbAsyncInit = function() {
+		        FB.init({
+		          appId      : '452014394930220',
+		          xfbml      : true,
+		          version    : 'v2.0'
+		        });
+		        fbStuff();
+		      };
+		
+		      (function(d, s, id){
+		         var js, fjs = d.getElementsByTagName(s)[0];
+		         if (d.getElementById(id)) {return;}
+		         js = d.createElement(s); js.id = id;
+		         js.src = "//connect.facebook.net/en_US/sdk.js";
+		         fjs.parentNode.insertBefore(js, fjs);
+		       }(document, 'script', 'facebook-jssdk'));
+	    </script>
+    <? } ?>
+ 
