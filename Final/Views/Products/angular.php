@@ -3,11 +3,23 @@
 		margin-bottom: 10px;
 	}
 	.label-danger{ background-color: maroon; }
+	.has-feedback .form-control-feedback {
+		top: 0px;
+		right: 15px;
+	}
 </style>
 <div ng-app="homepageApp">
 	
+	<div class="row">
+		<div class="col-sm-offset-4 col-sm-4 has-feedback" id="search">
+			<input ng-model="query" type="search" class="form-control" placeholder="Search">			
+  			<span class="glyphicon glyphicon-search form-control-feedback"></span>
+		</div>
+	</div>
+		
 	<div class="row" ng-controller="ItemListCtrl" >
-		<div ng-repeat="item in items" class=" col-md-4">
+		
+		<div ng-repeat="item in items | filter:query" class=" col-md-4">
 			<div class="panel panel-info">
 			  <div class="panel-heading">
 				<code class="pull-right">${{item.Price}}</code>
