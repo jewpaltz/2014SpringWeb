@@ -31,7 +31,9 @@
 	}
 	.label-danger{ background-color: maroon; }
 </style>
-
+	<form id="search">
+		<input name="city" id="city" type="text" />
+	</form>
 	<ul class="nav nav-pills categories" data-bind="foreach: categoryList">
 	  <li data-bind="css: { active: $data == $root.currentCategory() }" >
 	  	<a href="#" data-bind="text: Name, click: $root.selectCategory"></a>
@@ -88,9 +90,21 @@
 	<? function JavaScripts(){ ?>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.0.0/knockout-min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/typeahead.bundle.min.js"></script>
 		<script type="text/javascript">
 			$(function(){
-				$(".navbar-collapse").append($("#cart-tmpl").html())
+				
+				$("#city").typeahead(null,{
+					displayKey: 'city',
+					source: function(query, cb){
+						$.get("./Cities.php?action=search&format=json&q=" + query, null,null,'json')
+							.always(function(data){
+								cb(data.data);
+							})
+					}
+				});
+				
+				$(".navbar-collapse").append($("#cart-tmpl").html())				
 				
 				var vm = {
 					categoryList: ko.observableArray(),
